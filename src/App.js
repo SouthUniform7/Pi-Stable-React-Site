@@ -51,18 +51,29 @@ const toggleReminder = (id) => {
     )
 }
 
+//Gets a file
+/*
+const showFile = (e) => {
+  e.preventDefault();
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const text = e.target.result;
+    console.log(text);
+  };
+  reader.readAsText(e.target.files[0]);
+}; 
+*/
+
   return (
     <div className='container'>
-      <Header 
-      title='My Bruh Moments' 
+      <Header  
       onAdd={() => setShowAddTask(!showAddTask)}
       showAdd={showAddTask}
        />
 
       {showAddTask && <AddTask onAdd={addTask}/>}
 
-      <img src="https://scontent-lga3-2.xx.fbcdn.net/v/t31.18172-8/12710860_962082760545114_5771724420675882439_o.jpg?_nc_cat=107&amp;ccb=1-5&amp;_nc_sid=e3f864&amp;_nc_ohc=rVjUaYBA8GsAX-P3V6b&amp;_nc_ht=scontent-lga3-2.xx&amp;oh=00_AT8F4UjkUUYCIEGXxhI9iVnXxvGC-DHWtvZCoV6rcuaV4w&amp;oe=62135859" alt="damn bro I just caught you lookin at alt text on an img element. damn." width="435px"/>
-
+      
       {tasks.length >0 ? (
       <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : ('No Tasks to Show')
@@ -75,3 +86,6 @@ const toggleReminder = (id) => {
 };
 
 export default App;
+
+//Add this back to the JSX when you want your image
+//<img src="https://scontent-lga3-2.xx.fbcdn.net/v/t31.18172-8/12710860_962082760545114_5771724420675882439_o.jpg?_nc_cat=107&amp;ccb=1-5&amp;_nc_sid=e3f864&amp;_nc_ohc=rVjUaYBA8GsAX-P3V6b&amp;_nc_ht=scontent-lga3-2.xx&amp;oh=00_AT8F4UjkUUYCIEGXxhI9iVnXxvGC-DHWtvZCoV6rcuaV4w&amp;oe=62135859" alt="damn bro I just caught you lookin at alt text on an img element. damn." width="435px"/>

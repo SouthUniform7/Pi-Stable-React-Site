@@ -9,14 +9,14 @@ const Header = ({ title, onAdd, showAdd}) => {
       <Button 
       color={showAdd ? '#125254' : '#a6dab4'}
       textColor={showAdd ? '#a6dab4' : '#125254'}
-      text={showAdd ? 'General Kenobi!' : 'Hello There'} 
+      text={showAdd ? 'This is where the fun begins' : 'Hello There'} 
       onClick={onAdd} />
       
   </header>;
 }
 
 Header.defaultProps = {
-    title: 'Bruh Moment Tracker',
+    title: 'Task Tracker',
 }
 
 Header.propTypes= {
