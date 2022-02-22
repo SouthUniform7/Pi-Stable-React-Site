@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
 import Resume from './Resume.pdf'
