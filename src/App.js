@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
+import Footer from './components/Footer'
+import About from './components/About'
 
 
 const App = () => {
@@ -16,14 +19,14 @@ const App = () => {
     },
     {
         id: 2,
-        text: 'Videogames',
-        day: 'Feb 5th at 2:31pm',
+        text: 'Workout',
+        day: 'Feb 5th at 6:45pm',
         reminder: false,
     },
     {
         id: 3,
         text: 'Legos',
-        day: 'Feb 5th at 2:31:15pm',
+        day: 'Feb 5th at 9:15pm',
         reminder: true,
     },
 ])
@@ -65,21 +68,31 @@ const showFile = (e) => {
 */
 
   return (
+    <Router>
     <div className='container'>
       <Header  
       onAdd={() => setShowAddTask(!showAddTask)}
       showAdd={showAddTask}
        />
+       
+      <Routes>
+      <Route path='/' exact element={
+          <>
+          {showAddTask && <AddTask onAdd={addTask}/>}
 
-      {showAddTask && <AddTask onAdd={addTask}/>}
-
+        
+          {tasks.length >0 ? (
+          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
+          ) : ('No Tasks to Show')
+          }
+          </>
+      }/>
       
-      {tasks.length >0 ? (
-      <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
-      ) : ('No Tasks to Show')
-      }
-      
+      <Route path='/about' element={<About/>}/>
+      </Routes>
+      <Footer />
     </div>
+    </Router>
     //only deletes items from the UI, items are not stored on a centralized server. That can be done with a json server possibly
 
   );
